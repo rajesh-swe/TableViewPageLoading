@@ -1,0 +1,17 @@
+machine:
+  environment:
+    # Change these to match your app name and
+    # certificate filename.
+    APP_NAME: MachineTest_LazyLoading
+    CERT_ID: NK2Z975JCM
+deployment:
+  hockey_app:
+    branch: master
+    commands:
+      - openssl aes-256-cbc -d -a -k $P12_PASSWORD
+          -in  certificates/$CERT_NAME.p12.encrypted
+          -out certificates/$CERT_NAME.p12
+      - security import certificates/$CERT_NAME.p12 -k circle.keychain -T /usr/bin/codesign
+      - security find-identity -p codesigning circle.keychain # List all keysiging identities
+      # Build Signed App
+      - gym --use_legacy_build_api
