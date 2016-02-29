@@ -2,4 +2,4 @@ language: objective-c  #1
 osx_image: xcode7.2 #2
 xcode_project: MachineTest_LazyLoading.xcodeproj #3
 xcode_scheme: MachineTest_LazyLoading #4
-xcode_sdk: iphonesimulator8.4 #5
+xcode_sdk: iphonesimulator9.2 #5
